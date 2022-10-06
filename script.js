@@ -7,18 +7,17 @@
 // saída: “diversão” saída: “adoro”
 function MaiorPalavra(Palavra) {
     var MaiorPalavraRetorno = "";
-    var Regex = /^(?=.*[@!#$%^&*()/\\])[@!#$%^&*()/\\a-zA-Z0-9]{8,20}$/;
     var ListaPalavras = Palavra.split(" ");
     ListaPalavras.forEach(Verificate);
     function Verificate(word) {
-        var NumberTeste = word.replace(/[^a-zA-Z\s]/g, "");
+        var NumberTeste = word.replace(/[^a-zA-Z0-9\s]/g, "");
         if (NumberTeste.length > MaiorPalavraRetorno.length) {
             MaiorPalavraRetorno = NumberTeste;
         }
     }
     return console.log(MaiorPalavraRetorno);
 }
-MaiorPalavra("luca lucas");
+MaiorPalavra("luca1111 lucas");
 // 2. Faça uma função ValidarNomeDeUsuario(nome) use o parâmetro “nome” que é
 // passado e verifique se é um nome de usuário válido de acordo com as regras:
 // a. O nome de usuário tem entre 4 e 25 caracteres;
@@ -28,29 +27,22 @@ MaiorPalavra("luca lucas");
 // Se o nome de usuário for válido deve retornar true, e se for inválido deve retornar
 // false. Exemplo: entrada: “Dev_brabo” entrada: “_SeniorDev2”
 // saída: true saída: false
-// function validarNome(nome: string): boolean {
-//   if (nome.length >= 4 && nome.length <= 25) {
-//     if (
-//       (nome[nome.length] == "_" || nome[0] == "_" || nome[0] == "1",
-//       "2",
-//       "3",
-//       "4",
-//       "5",
-//       "6",
-//       "7",
-//       "8",
-//       "9")
-//     ) {
-//       return false;
-//     } else {
-//       return true;
-//     }
-//   } else {
-//     return false;
-//   }
-// }
-// console.log(validarNome("1Arthur"));
-// 3. Faça uma função ElementosEmComum(arrayString) leia o array de strings passado
+function validarNome(nome) {
+    var array09 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], regex = nome.replace(/[^0-9\s]/g, "");
+    if (nome.length >= 4 && nome.length <= 25) {
+        if (nome[nome.length - 1] == "_" || nome[0] == "_" || regex == nome[0]) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    else {
+        return false;
+    }
+}
+console.log(validarNome("Arthur"));
+//  3. Faça uma função ElementosEmComum(arrayString) leia o array de strings passado
 // como parâmetro “arrayString” que deve conter dois elementos: o primeiro
 // representa uma lista de número separados por vírgula e estão em ordem crescente,
 // o segundo elemento representa uma outra lista de números também separados por

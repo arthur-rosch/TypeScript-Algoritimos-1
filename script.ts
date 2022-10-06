@@ -7,14 +7,12 @@
 // saída: “diversão” saída: “adoro”
 function MaiorPalavra(Palavra: string) {
   let MaiorPalavraRetorno: string = "";
-  let Regex = /^(?=.*[@!#$%^&*()/\\])[@!#$%^&*()/\\a-zA-Z0-9]{8,20}$/;
-
   let ListaPalavras = Palavra.split(" ");
 
   ListaPalavras.forEach(Verificate);
 
   function Verificate(word: string): void {
-    let NumberTeste: string = word.replace(/[^a-zA-Z\s]/g, "");
+    let NumberTeste: string = word.replace(/[^a-zA-Z0-9\s]/g, "");
 
     if (NumberTeste.length > MaiorPalavraRetorno.length) {
       MaiorPalavraRetorno = NumberTeste;
@@ -23,7 +21,7 @@ function MaiorPalavra(Palavra: string) {
 
   return console.log(MaiorPalavraRetorno);
 }
-MaiorPalavra("luca lucas");
+MaiorPalavra("luca1111 lucas");
 // 2. Faça uma função ValidarNomeDeUsuario(nome) use o parâmetro “nome” que é
 // passado e verifique se é um nome de usuário válido de acordo com as regras:
 // a. O nome de usuário tem entre 4 e 25 caracteres;
@@ -35,18 +33,11 @@ MaiorPalavra("luca lucas");
 // saída: true saída: false
 
 function validarNome(nome: string): boolean {
+  let array09: string[] = ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    regex = nome.replace(/[^0-9\s]/g, "");
+
   if (nome.length >= 4 && nome.length <= 25) {
-    if (
-      (nome[nome.length] == "_" || nome[0] == "_" || nome[0] == "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9")
-    ) {
+    if (nome[nome.length - 1] == "_" || nome[0] == "_" || regex == nome[0]) {
       return false;
     } else {
       return true;
@@ -55,7 +46,7 @@ function validarNome(nome: string): boolean {
     return false;
   }
 }
-console.log(validarNome("1Arthur"));
+console.log(validarNome("Arthur"));
 
 //  3. Faça uma função ElementosEmComum(arrayString) leia o array de strings passado
 // como parâmetro “arrayString” que deve conter dois elementos: o primeiro
