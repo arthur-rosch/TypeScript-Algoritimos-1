@@ -5,19 +5,19 @@
 // conter números, por exemplo “Ola palavra123 831”.
 // Exemplo: entrada: “estudar&! diversão” entrada: “eu adoro pizza”
 // saída: “diversão” saída: “adoro”
-function MaiorPalavra(Palavra) {
-    var MaiorPalavraRetorno = "";
-    var ListaPalavras = Palavra.split(" ");
-    ListaPalavras.forEach(Verificate);
-    function Verificate(word) {
-        var NumberTeste = word.replace(/[^a-zA-Z0-9\s]/g, "");
-        if (NumberTeste.length > MaiorPalavraRetorno.length) {
-            MaiorPalavraRetorno = NumberTeste;
-        }
-    }
-    return console.log(MaiorPalavraRetorno);
-}
-MaiorPalavra("luca1111 lucas");
+// function MaiorPalavra(Palavra: string) {
+//   let MaiorPalavraRetorno: string = "";
+//   let ListaPalavras = Palavra.split(" ");
+//   ListaPalavras.forEach(Verificate);
+//   function Verificate(word: string): void {
+//     let NumberTeste: string = word.replace(/[^a-zA-Z0-9\s]/g, "");
+//     if (NumberTeste.length > MaiorPalavraRetorno.length) {
+//       MaiorPalavraRetorno = NumberTeste;
+//     }
+//   }
+//   return console.log(MaiorPalavraRetorno);
+// }
+// MaiorPalavra("luca1111 lucas");
 // 2. Faça uma função ValidarNomeDeUsuario(nome) use o parâmetro “nome” que é
 // passado e verifique se é um nome de usuário válido de acordo com as regras:
 // a. O nome de usuário tem entre 4 e 25 caracteres;
@@ -28,9 +28,12 @@ MaiorPalavra("luca1111 lucas");
 // false. Exemplo: entrada: “Dev_brabo” entrada: “_SeniorDev2”
 // saída: true saída: false
 function validarNome(nome) {
-    var array09 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], regex = nome.replace(/[^0-9\s]/g, "");
+    var array09 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"], regex0_9 = nome.replace(/[^0-9\s]/g, ""), regex = nome.replace(/[^a-zA-Z-_]/g, "");
     if (nome.length >= 4 && nome.length <= 25) {
-        if (nome[nome.length - 1] == "_" || nome[0] == "_" || regex == nome[0]) {
+        if (nome[nome.length - 1] == "_" ||
+            nome[0] == "_" ||
+            regex0_9 == nome[0] ||
+            nome != regex) {
             return false;
         }
         else {
@@ -41,7 +44,7 @@ function validarNome(nome) {
         return false;
     }
 }
-console.log(validarNome("Arthur"));
+console.log(validarNome("Art_hur"));
 //  3. Faça uma função ElementosEmComum(arrayString) leia o array de strings passado
 // como parâmetro “arrayString” que deve conter dois elementos: o primeiro
 // representa uma lista de número separados por vírgula e estão em ordem crescente,
